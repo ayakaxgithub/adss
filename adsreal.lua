@@ -1,3 +1,6 @@
+if not game:IsLoaded() then
+    game.Loaded:Wait()
+end
 _G.Settings = {
     farm = false;
     farmType = ""; -- Enable auto Dimension and Raid
