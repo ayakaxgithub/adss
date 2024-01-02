@@ -511,9 +511,9 @@ end
 
 local filename = "KNIXNKK.json";
 function saveSettings()
-    local json
+    local json;
     if (writefile) then
-        json = httpservice:JSONEncode(_G.Settings)
+        json = httpservice:JSONEncode(_G.Settings);
         writefile(file_settings, json)
     else
         print(' -- CANNOT SAVE CONFIG FILE -- ')
