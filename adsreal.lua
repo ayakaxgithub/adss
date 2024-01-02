@@ -36,6 +36,27 @@ _G.Settings = {
     coopMainMassSell = false;
     leaderboard = false;
 }
+local a = "Regxnlief Hub"
+local b = "AnimeDimensionx.lua"
+function saveSettings()
+    local c = game:GetService("HttpService")
+    local d = c:JSONEncode(_G.Settings)
+    if writefile then
+        if isfolder(a) then
+            writefile(a .. "\\" .. b, d)
+        else
+            makefolder(a)
+            writefile(a .. "\\" .. b, d)
+        end
+    end
+end
+function loadSettings()
+    local c = game:GetService("HttpService")
+    if isfile(a .. "\\" .. b) then
+        _G.Settings = c:JSONDecode(readfile(a .. "\\" .. b))
+    end
+end
+loadSettings()
 bestcard = false;
 local function isInteger(str)
     return not (str == "" or str:find("%D"))  -- str:match("%D") also works
@@ -507,29 +528,6 @@ function autoFarm()
     spawn(spamSkill)
     spawn(spamPunch)
 end
-
-
-local a = "Regxnlief Hub"
-local b = "AnimeDimensionx.lua"
-function saveSettings()
-    local c = game:GetService("HttpService")
-    local d = c:JSONEncode(_G.Settings)
-    if writefile then
-        if isfolder(a) then
-            writefile(a .. "\\" .. b, d)
-        else
-            makefolder(a)
-            writefile(a .. "\\" .. b, d)
-        end
-    end
-end
-function loadSettings()
-    local c = game:GetService("HttpService")
-    if isfile(a .. "\\" .. b) then
-        _G.Settings = c:JSONDecode(readfile(a .. "\\" .. b))
-    end
-end
-loadSettings()
 
 function Farm()
     if game.PlaceId == 6938803436 or game.PlaceId == 7274690025 then
