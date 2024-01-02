@@ -510,21 +510,25 @@ end
 
 
 local filename = "KNIXNKK.json";
-function saveSettings()
-    local json;
-    if (writefile) then
-        json = httpservice:JSONEncode(_G.Settings);
-        writefile(file_settings, json)
+local httpservice = game:GetService("HttpService")
+function LoadSettings()
+    if (readfile and isfile and isfile(file_settings)) then
+        _G.SettingsTable = httpservice:JSONDecode(readfile(file_settings))
+    end
+    if (readfile and isfile and isfolder(macrofolder)) then
+        for i,v in pairs(listfiles(macrofolder .. '/')) do
+            table.insert(macrolist, string.sub(v, v:find('/') + 1))
+        end
     else
-        print(' -- CANNOT SAVE CONFIG FILE -- ')
-    end   
+    makefolder(macrofolder)
+    end
 end
-function loadSettings()
-    local HttpService = game:GetService("HttpService");
-    if (readfile and isfile and isfile(filename)) then
-        _G.Settings = HttpService:JSONDecode(readfile(filename));
-    else
-        saveSettings()
+LoadSettings()
+function SaveSettings()
+    local json
+    if (writefile) then
+        json = httpservice:JSONEncode(_G.SettingsTable)
+        writefile(file_settings, json)
     end
 end
 function Farm()
