@@ -980,14 +980,14 @@ for i,v in pairs(HWIDTABLE) do
             saveSettings()
         end)
         micsSeccion:Button("Save Settings", function()
+            saveSettings()
             game.StarterGui:SetCore("SendNotification", {
             Title = "Save Success!";
             Text = "Reginlieff";
             Icon = "rbxthumb://type=Asset&id=" .. 9462674551 .. "&w=420&h=420"; --
             Duration = .2;
-            Button1 = "SAVED";
-            })    
-            saveSettings()
+            Button1 = "SAVED";    
+            })   
         end)
         local creditsTab = Luxt:Tab("Credits")
         local cf = creditsTab:Section("Main Credits")
