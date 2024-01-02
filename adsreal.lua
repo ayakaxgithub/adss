@@ -509,28 +509,28 @@ function autoFarm()
 end
 
 
-local filename = "KNIXNKK.json";
-local httpservice = game:GetService("HttpService")
-function LoadSettings()
-    if (readfile and isfile and isfile(file_settings)) then
-        _G.SettingsTable = httpservice:JSONDecode(readfile(file_settings))
-    end
-    if (readfile and isfile and isfolder(macrofolder)) then
-        for i,v in pairs(listfiles(macrofolder .. '/')) do
-            table.insert(macrolist, string.sub(v, v:find('/') + 1))
+local a = "Regxnlief Hub"
+local b = "AnimeDimensionx.lua"
+function saveSettings()
+    local c = game:GetService("HttpService")
+    local d = c:JSONEncode(_G.Settings)
+    if writefile then
+        if isfolder(a) then
+            writefile(a .. "\\" .. b, d)
+        else
+            makefolder(a)
+            writefile(a .. "\\" .. b, d)
         end
-    else
-    makefolder(macrofolder)
     end
 end
-LoadSettings()
-function SaveSettings()
-    local json
-    if (writefile) then
-        json = httpservice:JSONEncode(_G.SettingsTable)
-        writefile(file_settings, json)
+function loadSettings()
+    local c = game:GetService("HttpService")
+    if isfile(a .. "\\" .. b) then
+        _G.Settings = c:JSONDecode(readfile(a .. "\\" .. b))
     end
 end
+loadSettings()
+
 function Farm()
     if game.PlaceId == 6938803436 or game.PlaceId == 7274690025 then
         repeat wait() until game:IsLoaded()
