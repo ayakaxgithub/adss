@@ -775,8 +775,8 @@ function Farm()
 end
 end
 end
-local HWIDTABLE = loadstring(game:HttpGet("https://pastebin.com/raw/2b7sfhYt"))()
-local raisd = loadstring(game:HttpGet("https://pastebin.com/raw/XpDTApP6"))()
+local HWIDTABLE = loadstring(game:HttpGet("https://pastebin.com/raw/nQnLnLVY"))()
+local raisd = loadstring(game:HttpGet("https://pastebin.com/raw/JsFqe9Aj"))()
 local RbxAnalyticsService = game:GetService("RbxAnalyticsService"):GetClientId()
 for i,v in pairs(HWIDTABLE) do
     if tostring(v) == tostring(RbxAnalyticsService) then
