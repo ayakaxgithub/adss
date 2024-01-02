@@ -182,22 +182,22 @@ hc = false
 function DimensionCheck(level)
     -- Alien Dimension
     if level >= 141 then
-        Difficulty = Diff_table[1]
-        MapName = Map_table[8]
+        Difficulty = Diff_table[3]
+        MapName = Map_table[11]
         Hardcore = hc
         cardReq = 141
     end
     -- Pirate Dimensions
     if level >= 131 and level <= 140 then
-        Difficulty = Diff_table[1]
-        MapName = Map_table[8]
+        Difficulty = Diff_table[3]
+        MapName = Map_table[10]
         Hardcore = hc
         cardReq = 131
     end
     -- Devil Dimensions
     if level >= 121 and level <= 130 then
-        Difficulty = Diff_table[1]
-        MapName = Map_table[8]
+        Difficulty = Diff_table[3]
+        MapName = Map_table[9]
         Hardcore = hc
         cardReq = 121
     end
@@ -210,7 +210,7 @@ function DimensionCheck(level)
     end
     if level >= 106 and level <= 112 then
         Difficulty = Diff_table[1]
-        MapName = Map_table[7]
+        MapName = Map_table[8]
         Hardcore = hc
         cardReq = 106
     end
